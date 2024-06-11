@@ -1,0 +1,368 @@
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon.png b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon.png
+new file mode 100644
+index 0000000..0c64501
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@2x.png b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@2x.png
+new file mode 100644
+index 0000000..205ea81
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@2x.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@3x.png b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@3x.png
+new file mode 100644
+index 0000000..a8966b4
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/emptyHeartIcon@3x.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon.png b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon.png
+new file mode 100644
+index 0000000..d778fd1
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@2x.png b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@2x.png
+new file mode 100644
+index 0000000..267f9da
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@2x.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@3x.png b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@3x.png
+new file mode 100644
+index 0000000..818aae6
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/filledHeartIcon@3x.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/index.d.ts b/node_modules/react-native-story-view/lib/assets/icons/index.d.ts
+index b0f6e7e..a320237 100644
+--- a/node_modules/react-native-story-view/lib/assets/icons/index.d.ts
++++ b/node_modules/react-native-story-view/lib/assets/icons/index.d.ts
+@@ -1,5 +1,8 @@
+ declare const Icons: {
+     closeIcon: any;
+     send: any;
++    share: any,
++    heart: any,
++    filledHeart: any,
+ };
+ export default Icons;
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/index.js b/node_modules/react-native-story-view/lib/assets/icons/index.js
+index ab97366..07587ce 100644
+--- a/node_modules/react-native-story-view/lib/assets/icons/index.js
++++ b/node_modules/react-native-story-view/lib/assets/icons/index.js
+@@ -1,6 +1,9 @@
+ const Icons = {
+     closeIcon: require('./close_icon.png'),
+     send: require('./send.png'),
++    share: require('./shareIcon.png'),
++    heart: require('./emptyHeartIcon.png'),
++    filledHeart: require('./filledHeartIcon.png'),
+ };
+ export default Icons;
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/index.ts b/node_modules/react-native-story-view/lib/assets/icons/index.ts
+index 72b3c9b..92bf2c0 100644
+--- a/node_modules/react-native-story-view/lib/assets/icons/index.ts
++++ b/node_modules/react-native-story-view/lib/assets/icons/index.ts
+@@ -1,6 +1,9 @@
+ const Icons = {
+   closeIcon: require('./close_icon.png'),
+   send: require('./send.png'),
++  share: require('./shareIcon.png'),
++  heart: require('./emptyHeartIcon.png'),
++  filledHeart: require('./filledHeartIcon.png'),
+ };
+ 
+ export default Icons;
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/shareIcon.png b/node_modules/react-native-story-view/lib/assets/icons/shareIcon.png
+new file mode 100644
+index 0000000..05f6913
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/shareIcon.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/shareIcon@2x.png b/node_modules/react-native-story-view/lib/assets/icons/shareIcon@2x.png
+new file mode 100644
+index 0000000..0799506
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/shareIcon@2x.png differ
+diff --git a/node_modules/react-native-story-view/lib/assets/icons/shareIcon@3x.png b/node_modules/react-native-story-view/lib/assets/icons/shareIcon@3x.png
+new file mode 100644
+index 0000000..217763e
+Binary files /dev/null and b/node_modules/react-native-story-view/lib/assets/icons/shareIcon@3x.png differ
+diff --git a/node_modules/react-native-story-view/lib/components/Footer/Footer.d.ts b/node_modules/react-native-story-view/lib/components/Footer/Footer.d.ts
+index 64035c5..df7e453 100644
+--- a/node_modules/react-native-story-view/lib/components/Footer/Footer.d.ts
++++ b/node_modules/react-native-story-view/lib/components/Footer/Footer.d.ts
+@@ -1,4 +1,4 @@
+ import React from 'react';
+ import type { FooterProps } from './types';
+-declare const Footer: ({ onIconPress, onSendTextPress, sendTextStyle, sendIconStyle, inputStyle, containerStyle, sendText, shouldShowSendImage, shouldShowTextInputSend, sendIconProps, sendTextProps, containerViewProps, customInput, ...rest }: FooterProps) => React.JSX.Element;
++declare const Footer: ({filledHeartIcon, onIconPress, onSendTextPress, onHeartIconPress, sendTextStyle, sendIconStyle, inputStyle, containerStyle, sendText, shouldShowSendImage,shouldShowHeartImage, shouldShowTextInputSend, sendIconProps,heartIconProps, sendTextProps, containerViewProps, customInput,sectionViewStyle, ...rest }: FooterProps) => React.JSX.Element;
+ export default Footer;
+diff --git a/node_modules/react-native-story-view/lib/components/Footer/Footer.js b/node_modules/react-native-story-view/lib/components/Footer/Footer.js
+index 1766c75..fe00e70 100644
+--- a/node_modules/react-native-story-view/lib/components/Footer/Footer.js
++++ b/node_modules/react-native-story-view/lib/components/Footer/Footer.js
+@@ -1,32 +1,56 @@
+-import React, { useRef } from 'react';
++import React, { useRef, useState } from 'react';
+ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native';
+ import { Icons } from '../../assets';
+ import { Strings } from '../../constants';
+ import { useKeyboardListener } from '../../hooks';
+ import { Colors } from '../../theme';
+ import styles from './styles';
+-const Footer = ({ onIconPress, onSendTextPress, sendTextStyle, sendIconStyle, inputStyle, containerStyle, sendText, shouldShowSendImage = true, shouldShowTextInputSend = true, sendIconProps, sendTextProps, containerViewProps, customInput, ...rest }) => {
++const Footer = ({filledHeartIcon, onIconPress, onHeartIconPress, onSendTextPress, sendTextStyle, sendIconStyle, inputStyle, containerStyle, sendText, shouldShowSendImage = true, shouldShowHeartImage = true, shouldShowTextInputSend = true, sendIconProps, heartIconProps,sendTextProps, containerViewProps, customInput,sectionViewStyle, ...rest }) => {
+     const isKeyboardVisible = useKeyboardListener();
+     const ref = useRef(null);
++    // const [heartFilled, setHeartFilled] = useState(filledHeartIcon || false);
++    // const [heartIcon, setHeartIcon] = useState();
++    
+     const handleSendTextPress = () => {
+         var _a;
+         (_a = ref === null || ref === void 0 ? void 0 : ref.current) === null || _a === void 0 ? void 0 : _a.clear();
+         onSendTextPress === null || onSendTextPress === void 0 ? void 0 : onSendTextPress();
+     };
++
++    const handleHeartIconPress = () => {
++        // setHeartFilled(!heartFilled)
++        // if (heartIcon === Icons.heart) {
++        //     // setHeartIcon(Icons.filledHeart);
++        // } else {
++        //     // setHeartIcon(Icons.heart);
++        // }
++        onHeartIconPress && onHeartIconPress();
++    };
++    
+     const _sendTextStyle = StyleSheet.flatten([styles.sendText, sendTextStyle]);
+     const _sendIconStyle = StyleSheet.flatten([styles.sendIcon, sendIconStyle]);
++    const _heartIconStyle = StyleSheet.flatten([
++        styles.heartIcon,
++        heartIconProps
++    ]);
++    const _filledHeartIconStyle = StyleSheet.flatten([
++        styles.filledHeartIcon,
++    ]);
+     const _inputStyle = StyleSheet.flatten([styles.input, inputStyle]);
++    const _sectionStyle = StyleSheet.flatten([styles.sectionStyle, sectionViewStyle]);
+     const _containerStyle = StyleSheet.flatten([
+         styles.container,
+         containerStyle,
+     ]);
+     return (React.createElement(View, { style: _containerStyle, ...containerViewProps },
+-        React.createElement(View, { style: styles.sectionStyle },
++        React.createElement(View, { style:_sectionStyle  },
+             React.createElement(React.Fragment, null, customInput !== null && customInput !== void 0 ? customInput : (React.createElement(TextInput, { ref: ref, style: _inputStyle, placeholder: Strings.sendMessage, placeholderTextColor: Colors.white, ...rest }))),
+             isKeyboardVisible && shouldShowTextInputSend && (React.createElement(TouchableOpacity, { onPress: handleSendTextPress },
+                 React.createElement(Text, { style: _sendTextStyle, ...sendTextProps }, sendText !== null && sendText !== void 0 ? sendText : Strings.send)))),
++                !isKeyboardVisible && shouldShowHeartImage && (React.createElement(TouchableOpacity, { onPress: handleHeartIconPress, testID: "footerIcon" },
++            React.createElement(Image, { source: filledHeartIcon  ? Icons.filledHeart : Icons.heart, style: filledHeartIcon ? _filledHeartIconStyle : _heartIconStyle}))),
+         !isKeyboardVisible && shouldShowSendImage && (React.createElement(TouchableOpacity, { onPress: onIconPress, testID: "footerIcon" },
+-            React.createElement(Image, { source: Icons.send, style: _sendIconStyle, ...sendIconProps })))));
++            React.createElement(Image, { source: Icons.share, style: _sendIconStyle, ...sendIconProps })))));
+ };
+ export default Footer;
+-//# sourceMappingURL=Footer.js.map
+\ No newline at end of file
++//# sourceMappingURL=Footer.js.maps
+\ No newline at end of file
+diff --git a/node_modules/react-native-story-view/lib/components/Footer/styles.d.ts b/node_modules/react-native-story-view/lib/components/Footer/styles.d.ts
+index 82c2d7d..e143329 100644
+--- a/node_modules/react-native-story-view/lib/components/Footer/styles.d.ts
++++ b/node_modules/react-native-story-view/lib/components/Footer/styles.d.ts
+@@ -18,6 +18,18 @@ declare const styles: {
+         marginRight: number;
+         tintColor: string;
+     };
++    heartIcon: {
++        width: number;
++        height: number;
++        marginRight: number;
++        tintColor: string;
++    };
++    filledHeartIcon: {
++        width: number;
++        height: number;
++        marginRight: number;
++        tintColor: string;
++    };
+     sendText: {
+         color: string;
+         paddingRight: number;
+diff --git a/node_modules/react-native-story-view/lib/components/Footer/styles.js b/node_modules/react-native-story-view/lib/components/Footer/styles.js
+index 7e1b5b3..d353613 100644
+--- a/node_modules/react-native-story-view/lib/components/Footer/styles.js
++++ b/node_modules/react-native-story-view/lib/components/Footer/styles.js
+@@ -4,23 +4,34 @@ import { moderateScale, scale, verticalScale } from '../../theme/Metrics';
+ const styles = StyleSheet.create({
+     container: {
+         flexDirection: 'row',
+-        paddingBottom: verticalScale(8),
++        paddingVertical: verticalScale(8),
+         alignItems: 'center',
+     },
+     input: {
+         flex: 1,
+-        paddingVertical: verticalScale(15),
+-        paddingHorizontal: scale(12),
++        paddingVertical: verticalScale(8),
++        paddingHorizontal: scale(10),
+         color: Colors.white,
+-        height: verticalScale(45),
+         fontSize: moderateScale(12, false, 0.3),
+     },
+     sendIcon: {
+         width: moderateScale(24),
+         height: moderateScale(24),
+-        marginRight: scale(8),
++        marginRight: scale(10),
+         tintColor: Colors.white,
+     },
++    heartIcon: {
++        width: moderateScale(24),
++        height: moderateScale(24),
++        marginRight: scale(10),
++        // tintColor: Colors.white,
++    },
++    filledHeartIcon: {
++        width: moderateScale(24),
++        height: moderateScale(24),
++        marginRight: scale(10),
++        tintColor: "red",
++    },
+     sendText: {
+         color: Colors.white,
+         paddingRight: scale(16),
+@@ -28,14 +39,14 @@ const styles = StyleSheet.create({
+     },
+     sectionStyle: {
+         flexDirection: 'row',
+-        borderWidth: 1,
++        borderWidth: 2,
+         borderColor: Colors.white,
+-        borderRadius: moderateScale(24),
++        borderRadius: moderateScale(3),
+         overflow: 'hidden',
+         flex: 1,
+         justifyContent: 'center',
+         alignItems: 'center',
+-        marginHorizontal: scale(8),
++        marginHorizontal: scale(12),
+     },
+     ImageStyle: {
+         padding: moderateScale(10),
+diff --git a/node_modules/react-native-story-view/lib/components/Footer/types.d.ts b/node_modules/react-native-story-view/lib/components/Footer/types.d.ts
+index 193d498..129eb6c 100644
+--- a/node_modules/react-native-story-view/lib/components/Footer/types.d.ts
++++ b/node_modules/react-native-story-view/lib/components/Footer/types.d.ts
+@@ -4,16 +4,21 @@ export declare type FooterComponentProps = React.ReactElement<FooterProps>;
+ export declare type FooterProps = TextInputProps & {
+     label?: string;
+     sendIconProps?: ImageProps;
++    heartIconProps?: ImageProps;
+     sendTextProps?: TextProps;
+     containerViewProps?: ViewProps;
+     shouldShowTextInputSend?: boolean;
+     customInput?: TextInput | null;
+     shouldShowSendImage?: boolean;
++    shouldShowHeartImage?: boolean;
+     sendTextStyle?: TextStyle;
+     sendIconStyle?: ImageStyle;
+     inputStyle?: StyleProp<TextStyle>;
+     containerStyle?: ViewStyle;
++    sectionViewStyle?: ViewStyle;
+     sendText?: string;
+     onIconPress?: () => void | null;
+     onSendTextPress?: () => void | null;
+-};
++    onHeartIconPress?: () => void | null;
++    filledHeartIcon?: boolean;
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-story-view/lib/components/MultiStoryContainer/MultiStoryContainer.js b/node_modules/react-native-story-view/lib/components/MultiStoryContainer/MultiStoryContainer.js
+index 2f544cb..7d805b9 100644
+--- a/node_modules/react-native-story-view/lib/components/MultiStoryContainer/MultiStoryContainer.js
++++ b/node_modules/react-native-story-view/lib/components/MultiStoryContainer/MultiStoryContainer.js
+@@ -82,7 +82,7 @@ const MultiStoryContainer = ({ stories, visible, onComplete, onUserStoryIndexCha
+                 offset: Metrics.screenWidth * index,
+                 index,
+             }), onLayout: () => setIsTransitionActive(true), onViewableItemsChanged: onViewRef.current, viewabilityConfig: viewabilityConfig.current, decelerationRate: Metrics.isIOS ? 0.99 : 0.92, keyExtractor: item => { var _a; return (item === null || item === void 0 ? void 0 : item.title) + ((_a = item === null || item === void 0 ? void 0 : item.id) === null || _a === void 0 ? void 0 : _a.toString()); }, contentContainerStyle: {
+-                width: Metrics.screenWidth * stories.length,
++                // width: Metrics.screenWidth * stories.length,
+             }, extraData: storyIndex, renderItem: ({ item, index }) => (React.createElement(MultiStoryListItem, { ref: (elements) => (itemsRef.current[index] = elements), ...{
+                     item,
+                     index,
+diff --git a/node_modules/react-native-story-view/lib/components/MultiStoryContainer/styles.js b/node_modules/react-native-story-view/lib/components/MultiStoryContainer/styles.js
+index 3e61c9a..3b83555 100644
+--- a/node_modules/react-native-story-view/lib/components/MultiStoryContainer/styles.js
++++ b/node_modules/react-native-story-view/lib/components/MultiStoryContainer/styles.js
+@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
+     container: {
+         flex: 1,
+         paddingTop: moderateScale(40),
+-        backgroundColor: Colors.black,
++        backgroundColor: "red",
+     },
+     itemContainer: {
+         flex: 1,
+@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
+     },
+     list: {
+         flex: 1,
+-        backgroundColor: Colors.black,
++        backgroundColor: "red,"
+     },
+     loaderStyle: {
+         flex: 1,
+diff --git a/node_modules/react-native-story-view/lib/components/StoryView/ProfileHeader.js b/node_modules/react-native-story-view/lib/components/StoryView/ProfileHeader.js
+index 24c14b9..7dcff34 100644
+--- a/node_modules/react-native-story-view/lib/components/StoryView/ProfileHeader.js
++++ b/node_modules/react-native-story-view/lib/components/StoryView/ProfileHeader.js
+@@ -2,7 +2,7 @@ import React, { memo } from 'react';
+ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+ import { Icons } from '../../assets';
+ import styles from './styles';
+-export default memo(function ProfileHeader({ userImage, userName, userMessage, userImageStyle, rootStyle, userNameStyle, userMessageStyle, closeIconStyle, customCloseButton, onImageClick, onClosePress, containerStyle, userMessageProps, userNameProps, userImageProps, closeIconProps, ...rest }) {
++export default memo(function ProfileHeader({shouldShowCancelIcon = true, userImage, userName, userMessage, userImageStyle, rootStyle, userNameStyle, userMessageStyle, closeIconStyle, customCloseButton, onImageClick, onClosePress, containerStyle, userMessageProps, userNameProps, userImageProps, closeIconProps, ...rest }) {
+     const _containerStyle = StyleSheet.flatten([
+         styles.userContainer,
+         containerStyle,
+@@ -31,6 +31,6 @@ export default memo(function ProfileHeader({ userImage, userName, userMessage, u
+             React.createElement(View, { style: styles.barUsername },
+                 React.createElement(Text, { style: _userNameStyle, ...userNameProps }, userName)),
+             !!userMessage && (React.createElement(Text, { style: _userMessageStyle, ...userMessageProps }, userMessage))), customCloseButton !== null && customCloseButton !== void 0 ? customCloseButton : (React.createElement(TouchableOpacity, { onPress: () => onClosePress === null || onClosePress === void 0 ? void 0 : onClosePress(), hitSlop: touchPos },
+-        React.createElement(Image, { source: Icons.closeIcon, style: _closeIconStyle, ...closeIconProps })))));
++            shouldShowCancelIcon && React.createElement(Image, { source: Icons.closeIcon, style: _closeIconStyle, ...closeIconProps })))));
+ });
+ //# sourceMappingURL=ProfileHeader.js.map
+\ No newline at end of file
+diff --git a/node_modules/react-native-story-view/lib/components/StoryView/StoryContainer.js b/node_modules/react-native-story-view/lib/components/StoryView/StoryContainer.js
+index 7c25f69..0c9349d 100644
+--- a/node_modules/react-native-story-view/lib/components/StoryView/StoryContainer.js
++++ b/node_modules/react-native-story-view/lib/components/StoryView/StoryContainer.js
+@@ -8,7 +8,7 @@ import StoryView from './StoryView';
+ import { useStoryContainer } from './hooks';
+ import styles from './styles';
+ import { ClickPosition, StoryMode, } from './types';
+-const StoryContainer = forwardRef(({ renderHeaderComponent, renderFooterComponent, renderCustomView, userStories, enableProgress = true, headerViewProps, customViewProps, footerViewProps, progressViewProps, storyContainerViewProps, gestureHandler, ...props }, ref) => {
++const StoryContainer = forwardRef(({storyContainerRootStyle, renderHeaderComponent, renderFooterComponent, renderCustomView, userStories, enableProgress = true, headerViewProps, customViewProps, footerViewProps, progressViewProps, storyContainerViewProps, gestureHandler, ...props }, ref) => {
+     var _a;
+     const viewedStories = useRef(Array((_a = props === null || props === void 0 ? void 0 : props.stories) === null || _a === void 0 ? void 0 : _a.length)
+         .fill(props === null || props === void 0 ? void 0 : props.stories)
+@@ -95,7 +95,7 @@ const StoryContainer = forwardRef(({ renderHeaderComponent, renderFooterComponen
+                     userStoryIndex: props === null || props === void 0 ? void 0 : props.userStoryIndex,
+                 }))))));
+     };
+-    return (React.createElement(SafeAreaView, { style: rootStyle },
++    return (React.createElement(SafeAreaView, { style: rootStyle, ...storyContainerRootStyle },
+         React.createElement(KeyboardAvoidingView, { style: containerStyle, keyboardVerticalOffset: Metrics.keyboardVerticalOffset, behavior: 'padding' }, props.visible && storyViewContent())));
+ });
+ export default StoryContainer;
+diff --git a/node_modules/react-native-story-view/lib/components/StoryView/types.d.ts b/node_modules/react-native-story-view/lib/components/StoryView/types.d.ts
+index b1ef363..3a5d1dd 100644
+--- a/node_modules/react-native-story-view/lib/components/StoryView/types.d.ts
++++ b/node_modules/react-native-story-view/lib/components/StoryView/types.d.ts
+@@ -132,6 +132,7 @@ export interface StoryContainerProps extends CommonProps {
+     headerStyle?: ViewStyle;
+     footerStyle?: ViewStyle;
+     gestureHandler?: (e: GestureHandlerEvent<any>) => void;
++    storyContainerRootStyle?: ViewStyle;
+ }
+ export interface UserProps {
+     containerStyle?: ViewStyle | undefined;
+@@ -151,6 +152,7 @@ export interface UserProps {
+     userMessageStyle?: TextStyle;
+     closeIconStyle?: ImageStyle;
+     customCloseButton?: any;
++    shouldShowCancelIcon?: boolean;
+ }
+ export interface FooterViewProps {
+     isShowReply: boolean | undefined;

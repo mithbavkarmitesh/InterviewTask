@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "928425044171",
+    "project_id": "treefe-frontend",
+    "storage_bucket": "treefe-frontend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928425044171:android:4bd66a8c383cc9b977534e",
+        "android_client_info": {
+          "package_name": "com.treefe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928425044171-d0i63p76p529v724sverdf08e2jrb3ua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.treefe",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "928425044171-625v9e8k57jjp1ruasr8cgml1uisv7md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlhotkYlH6lXs5gFdgu9mOnRSWMfFXf3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928425044171-625v9e8k57jjp1ruasr8cgml1uisv7md.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928425044171-6jh6eh18919u479ga1julh21htpblal8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.treefe.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,6 @@
+node_modules
+android/build
+android/.gradle/
+android/app/build
+treefee_camera_and_editor/.android/plugins_build_output
+treefee_camera_and_editor/.android/Flutter/build
